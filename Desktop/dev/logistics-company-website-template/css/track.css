@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Rubik:wght@900&display=swap");
+img {
+  width: 100%;
+  height: 60vh;
+}
+.services {
+  position: relative;
+}
+.fada {
+  font-family: "Poppins", sans-serif;
+}
+.overlay {
+  background: #0d0106;
+  opacity: 20%;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 60vh;
+  z-index: 2;
+}
+.overlay-text {
+  position: absolute;
+  top: 40%;
+  width: 50%;
+  left: 30%;
+  z-index: 2;
+  color: #fbfbff;
+  font-size: 35px;
+  font-family: "Rubik", sans-serif;
+}
+
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+}
+#progress{
+  position: relative;
+}
+
+input[type="button"] {
+  margin-top: 20px;
+}
+.node {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  transition: all 1000ms ease;
+}
+
+.activated {
+  box-shadow: 0px 0px 3px 2px rgba(194, 255, 194, 0.8);
+}
+
+.divider {
+  height: 70px;
+  width: 2px;
+  margin-left: 8px;
+  transition: all 800ms ease;
+  margin-top: -7px;
+}
+
+li p {
+  display: inline-block;
+  font-family: "Poppins";
+  margin-left: 25px;
+  font-size: 15px;
+  position: absolute;
+}
+
+li {
+  list-style: none;
+  /* line-height: 1px; */
+}
+
+
+.green {
+  background-color: rgba(92, 184, 92, 1);
+}
+
+.heading {
+  font-family: "Rubik", sans-serif;
+  font-size: 70px;
+  opacity: 30%;
+  color: #657ed4;
+}
+.small-heading {
+  color: #fbfbff;
+  font-size: 40px;
+  font-family: "Rubik", sans-serif;
+}
+.line {
+  width: 80px;
+  height: 8px;
+  background-color: #0d0106;
+}
+.caption {
+  position: relative;
+}
+.inner-caption {
+  position: absolute;
+  top: 20%;
+}
+span {
+  font-size: 13px;
+  font-weight: 500;
+}
+.btn3 {
+  background-color: #0d0106;
+  color: #fbfbff;
+  border: 0px
+}
+h6,
+h4 {
+  font-family: "Rubik", sans-serif;
+  font-weight: 700;
+}
+.icons {
+  width: 12px;
+  height: 12px;
+}
+@media screen and (max-width: 600px) {
+  .overlay-text {
+    font-size: 20px;
+    width: 50%;
+    top: 45%;
+  }
+  .overlay {
+    height: 55vh;
+  }
+  img {
+    height: 55vh;
+  }
+  .heading {
+    font-size: 40px;
+  }
+  .small-heading {
+    font-size: 23px;
+  }
+  .line {
+    width: 80px;
+    height: 4px;
+    background-color: #0d0106;
+  }
+  .title {
+    font-size: 20px;
+  }
+  .line {
+    display: none;
+  }
+  .icons {
+    width: 16px;
+    height: 16px;
+  }
+}

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Ontime shipping - Logistics Company Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="./css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/track.css">
+</head>
+
+<body>
+    <!-- Topbar Start -->
+    
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
+            <a href="index.html" class="navbar-brand ml-lg-3">
+                <h1 class="m-0 display-5 text-uppercase text-primary"><i class="fa fa-truck mr-2"></i>Ontime shipping</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav m-auto py-0">
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="service.html" class="nav-item nav-link">Service</a>
+                    <a href="track.html" class="nav-item nav-link active">Track</a>
+                     
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+                 <a href="track.html" class="btn btn-primary py-2 px-4 d-none d-lg-block">Get A Quote</a>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Header Start -->
+    <div class="jumbotron jumbotron-fluid mb-5">
+        <div class="container text-center py-5">
+            <h1 class="text-white display-3">Track Package</h1>
+            <div class="d-inline-flex align-items-center text-white">
+                <p class="m-0"><a class="text-white" href="">Home</a></p>
+                <i class="fa fa-circle px-3"></i>
+                <p class="m-0">Track</p>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- Contact Start -->
+
+   <section id="app">
+    <div class="container-fluid">
+        <div v-if="search === false" class="mx-auto" style="width: 100%; max-width: 600px;">
+          <div class="input-group">
+              <input v-model="parcelId" type="text" class="form-control border-light border-input" style="padding: 30px;" placeholder="Tracking Id">
+              <div class="input-group-append">
+                  <button  @click="submit" class="btn btn-primary px-3">Track & Trace</button>
+              </div>
+              
+          </div>
+      </div>
+      <div v-else class="m-lg-5 m-4 d-lg-flex">
+        <div>
+          <h4 class="py-4">Recent port and destination</h4>
+          <ul id="progress">
+            <li v-for="(location, index) in progress" :key="index">
+              <div class="node green"></div>
+              <p>{{ location.location }}</p>
+              <ul>
+                <li><div class="divider green"></div></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="m-4">
+          <h4 class="my-3">Personal Data</h4>
+          <span
+            >Below is the personal details and consignment brief information
+            retrieved from third party to the receiver.</span
+          >
+          <div>
+            <h6 class="my-3">Senders Information</h6>
+            <span>
+              <img src="/assets/img/user.png" class="icons mx-1" /> Sender's Full
+              Name: {{ this.data.senderInfo.name }} </span
+            ><br />
+            <span>
+              <img src="/assets/img/mail.png" class="icons mx-1" /> Sender's Email
+              Address: {{ this.data.senderInfo.email }} </span
+            ><br />
+            <span>
+              <img src="/assets/img/world.png" class="icons mx-1" /> Sender's
+              Address: {{ this.data.senderInfo.address }} </span
+            ><br />
+            <span>
+              <img src="/assets/img/world.png" class="icons mx-1" /> Sender's City:
+              {{ this.data.senderInfo.city }} </span
+            ><br />
+            <span>
+              <img src="/assets/img/world.png" class="icons mx-1" /> Sender Country:
+              {{ this.data.senderInfo.country }}
+            </span>
+          </div>
+          <div class="my-3">
+            <h6 class="my-2">Receiver's Information</h6>
+            <span>
+              <img src="/assets/img/user.png" class="icons mx-1" /> Receiver's Name:
+              {{ this.data.receiverInfo.name }} </span
+            ><br />
+            <span>
+              <img src="/assets/img/mail.png" class="icons mx-1" />
+              Receiver's Email Address: {{ this.data.receiverInfo.email }} </span
+            ><br />
+            <span>
+              <img src="/assets/img/phone.png" class="icons mx-1" /> Receiver's
+              Number: {{ this.data.receiverInfo.phone }} </span
+            ><br />
+            <span>
+              <img src="/assets/img/world.png" class="icons mx-1" /> Delivery
+              Address: {{ this.data.receiverInfo.address }} </span
+            ><br />
+            <span>
+              <img src="/assets/img/world.png" class="icons mx-1" /> Delivery City:
+              {{ this.data.receiverInfo.city }} </span
+            ><br />
+            <span>
+              <img src="/assets/img/world.png" class="icons mx-1" /> Delivery
+              Country: {{ this.data.receiverInfo.country }}
+            </span>
+            <br />
+            <span>
+              <img src="/assets/img/world.png" class="icons mx-1" /> Postal Code:
+              {{ this.data.receiverInfo.postCode }} </span
+            ><br />
+            <span
+              >Company Seal Logo: Consignment Description and Delivery
+              Details</span
+            >
+          </div>
+          <div class="my-3">
+            <h6 class="my-2">Delivery Information</h6>
+            <span>
+              <img src="/assets/img/cargo.png" class="icons mx-1" /> Trasport Method
+              {{ this.data.transportMethod }} </span
+            ><br />
+            <span>
+              <img src="/assets/img/cargo.png" class="icons mx-1" /> Cargo Frieght
+              Charge: {{ this.data.paymentMethod }} </span
+            ><br />
+            <span>
+              <img src="/assets/img/cargo.png" class="icons mx-1" /> Delivery Date:
+              {{ this.data.deliveryDate }} </span
+            ><br />
+            <span>
+              <img src="/assets/img/cargo.png" class="icons mx-1" /> Goods Damage
+              Safety: {{ this.data.insurance }} </span
+            ><br />
+            <span>
+              <img src="/assets/img/cargo.png" class="icons mx-1" /> Weight:
+              {{ this.data.weight }} </span
+            ><br />
+            <span>
+              <img src="/assets/img/cargo.png" class="icons mx-1" /> Number of
+              Consignment: {{ this.data.numberOfGoods }} </span
+            ><br />
+            <span>
+              <img src="/assets/img/cargo.png" class="icons mx-1" /> Delivery Status: Pending </span
+            ><br />
+          </div>
+        </div>
+      </div>
+      </div>
+   </section>
+    
+    <!-- Contact End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white mt-5 py-5 px-sm-3 px-md-5">
+        <div class="row pt-5">
+            <div class="col-lg-7 col-md-6">
+                <div class="row">
+                    <div class="col-md-6 mb-5">
+                        <h3 class="text-primary mb-4">Get In Touch</h3>
+                        <p><i class="fa fa-map-marker-alt mr-2"></i>123 Street, New York, USA</p>
+                        <p><i class="fa fa-phone-alt mr-2"></i>+1(678) 322-7424</p>
+                        <p><i class="fa fa-envelope mr-2"></i>info@example.com</p>
+                        <div class="d-flex justify-content-start mt-4">
+                            <a class="btn btn-outline-light btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-5">
+                        <h3 class="text-primary mb-4">Quick Links</h3>
+                        <div class="d-flex flex-column justify-content-start">
+                            <a class="text-white mb-2" href="index.html"><i class="fa fa-angle-right mr-2"></i>Home</a>
+                            <a class="text-white mb-2" href="about.html"><i class="fa fa-angle-right mr-2"></i>About Us</a>
+                            <a class="text-white mb-2" href="service.html"><i class="fa fa-angle-right mr-2"></i>Our Services</a>
+                            <a class="text-white mb-2" href="track.html"><i class="fa fa-angle-right mr-2"></i>Track</a>
+                            <a class="text-white" href="contact.html"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-6 mb-5">
+                <h3 class="text-primary mb-4">Newsletter</h3>
+                <p>Join our newsletter</p>
+                <div class="w-100">
+                    <div class="input-group">
+                        <input type="text" class="form-control border-light" style="padding: 30px;" placeholder="Your Email Address">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary px-4">Sign Up</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5" style="border-color: #3E3E4E !important;">
+        <div class="row">
+            <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
+                <p class="m-0 text-white">&copy; <a href="#">Ontime shipping service .inc</a>. All Rights Reserved.
+                </p>
+            </div>
+            
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+    
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="./js/vue.js"></script>
+</body>
+
+</html>
